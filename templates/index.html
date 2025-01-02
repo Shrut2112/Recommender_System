@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 10 Books</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            background-color: #FBB13C;
+        }
+        .navbar-brand{
+            color: #ffffff;
+            font-weight: 800;
+        } 
+        .nav-link {
+            color: #ffffff !important;
+        }
+        .title{
+            color: #ffffff;
+            padding-left: 100px;
+        }
+        h4{
+          font-size: smaller;  
+        }
+        body{
+            background: #262525;
+        }
+        .card {
+        height: 350px; /* Set a fixed height for the card */
+        text-align: center;
+    }
+    .card-img-top {
+        height: 200px; /* Fixed height for the image */
+        object-fit: cover; /* Ensure the image fits well without distortion */
+    }
+    .card img{
+        height: 200px;
+        width:fit-content;
+        object-fit: cover;
+    }
+    .card-title, .card-text {
+        white-space: nowrap; /* Prevent text wrapping */
+        overflow: hidden; /* Hide overflowing text */
+        text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+    }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Book World</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/recommend">Recommend</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Help</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <!-- {% for i in range(book_name|length) %}
+    <p>{{book_name[i]}}</p>
+    <img src="{{image[i]}}" alt="">
+    {% endfor %} -->
+    <p class="m-3 fs-2 title">Top 50 Books</p>
+    <div class="container">
+        <div class="row">
+            {% for i in range(book_name|length) %}
+                <div class="col-md-2" style="margin-top: 30px;">
+                    <div class="card">
+                        <div class="card-body">
+                            <img class="card-img-top" src="{{ image[i] }}">
+                            <div class="info">
+                                <h4 class="text-black">{{ book_name[i] }}</h4>
+                                <h4>Author: {{ author[i] }}</h4> 
+                                <p style="font-size: small;">
+                                Votes: {{ votes[i] }}
+                                <br>
+                                Score:{{ score[i] }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
